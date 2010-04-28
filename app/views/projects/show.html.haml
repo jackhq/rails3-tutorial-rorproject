@@ -1,0 +1,44 @@
+.grid_8
+  %h1= @project.name
+.grid_4
+  = link_to 'Edit', edit_project_path(@project), :class => 'button'
+  = link_to 'Back to Projects', projects_path, :class => 'button'
+
+  %p{:style => 'font-size:1.5em'} 
+    Percent Complete #{number_to_percentage @project.percent_complete}
+.clear
+.grid_7.prefix_1
+  #project
+    = raw @project.body
+  
+    %h2 Tasks
+    #task
+      - @project.tasks.order('created_at desc').order("completed asc").each do |t|
+        .grid_5
+          %h2{:style => 'margin-bottom:0'}= t.name
+          %p Task Owner: #{t.owner}
+        .grid_1
+          - unless t.completed
+            - form_for [@project, t] do |complete|
+              = complete.submit "Complete"
+          - else
+            Completed
+            = time_ago_in_words t.updated_at
+            ago
+        %hr
+.grid_4
+  %h2 Add Task
+  #new-task{:style => 'padding:10px;border: 1px solid black'}
+    - form_for [@project, Task.new] do |form|
+      %p
+        = form.label :name
+        %br
+        = form.text_field :name
+      %p
+        = form.label :owner
+        %br
+        = form.text_field :owner
+      %p
+        = form.submit
+        
+.clear

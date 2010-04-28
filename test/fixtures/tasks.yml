@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project_id: 1
+  name: MyString
+  owner: MyString
+  completed: false
+
+two:
+  project_id: 1
+  name: MyString
+  owner: MyString
+  completed: false

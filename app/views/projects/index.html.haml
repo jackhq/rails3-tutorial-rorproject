@@ -1,0 +1,14 @@
+.grid_7
+  %h1 Projects
+.grid_2{:style =>'text-align:right;margin-top:20px;'}
+  = link_to "New Project", new_project_path, :class => 'button'
+.grid_8.prefix_1
+  - @projects.each do |p|
+    #project{:class => p.percent_complete.to_i == 100 ? 'complete' : ''}
+      .grid_6
+        %h2= link_to p.name, p
+      .grid_1
+        %h3= number_to_percentage p.percent_complete
+        %p= button_to 'Remove', project_path(p), :confirm => 'Are you sure?', :method => :delete
+      .clear
+.clear

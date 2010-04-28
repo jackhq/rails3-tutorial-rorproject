@@ -1,0 +1,19 @@
+#header-wrap {
+  background-color: #000080;
+  color: #fff;
+  padding: 5px 0px;
+}
+
+#project {
+  border-bottom: 2px solid #000;
+}
+
+#project.complete {
+  background-color: #008C01;
+  color: #fff;
+}
+
+#project.complete a {
+  color: #fff;
+}
+

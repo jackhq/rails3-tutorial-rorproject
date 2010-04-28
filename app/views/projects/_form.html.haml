@@ -1,0 +1,16 @@
+.grid_2.prefix_7
+  = link_to 'Cancel', projects_path, :class => 'button'
+.grid_8.prefix_2
+  - form_for @project do |form|
+    = form.error_messages
+    %p
+      = form.label :name
+      %br
+      = form.text_field :name
+    %p
+      = form.label :body, "Description"
+      %br
+      = form.text_area :body
+    %p
+      = form.submit
+.clear

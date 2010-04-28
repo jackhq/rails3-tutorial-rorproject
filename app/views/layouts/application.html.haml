@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title Rorproject
+    - %w{ reset text 960 application }.each do |css|
+      = stylesheet_link_tag css
+    = stylesheet_link_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css'
+    
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+    = javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js'
+    = javascript_include_tag 'rails'
+    = javascript_include_tag 'application'
+    = csrf_meta_tag
+  %body
+    #header-wrap
+      #header.container_12
+        %h1 Ruby on Rails 3 Project Application
+    #content-wrap
+      .container_12
+        = yield
